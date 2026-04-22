@@ -14,7 +14,7 @@ import os
 app = Flask(__name__)
 
 # Cargar modelo
-model = YOLO(r"C:\Users\waltr\Downloads\mi web\model\best.pt")
+model = YOLO("model/best.pt")
 
 @app.route("/")
 def home():
