@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 # Cargar modelo
 model = YOLO("model/best.pt")
+model.to("cpu")
 
 @app.route("/")
 def home():
@@ -42,8 +43,6 @@ def predict():
 
     return render_template("index.html", prediction=pred, image=filepath)
 
-if __name__ == "__main__":
-    app.run(debug=True)
 import os
 
 if __name__ == "__main__":
