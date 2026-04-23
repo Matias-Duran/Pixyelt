@@ -41,11 +41,7 @@ def predict():
         results = model(filepath)
         r = results[0]
 
-        if r.boxes is not None and len(r.boxes) > 0:
-            cls = int(r.boxes.cls[0])
-            pred = r.names[cls]
-        else:
-            pred = "No se detectó nada"
+        pred = r.names[r.probs.top1]
 
     except Exception as e:
         return f"Error: {str(e)}"
